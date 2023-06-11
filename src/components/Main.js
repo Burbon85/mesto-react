@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import api from "../utils/Api";
+import React, { useContext } from "react";
+import { CurrentUserContext } from "../contexts/CurrentUserContext";
 import Card from "./Card";
 
 function Main({
@@ -8,20 +8,12 @@ function Main({
   onEditAvatar,
   onCardClick,
   onImagePopup,
+  cards,
+  onCardDelete,
+  onCardLike
 }) {
-  const [cards, setCards] = useState([]);
-  const [currentUser, setCurrentUser] = useState({});
+  const currentUser = useContext(CurrentUserContext);
 
-  useEffect(() => {
-    api
-      .getNeededAll()
-      .then(([dataForUserInfo, dataForInitialCards]) => {
-        // const [dataForUserInfo, dataForInitialCards] = result;
-        setCurrentUser(dataForUserInfo);
-        setCards(dataForInitialCards);
-      })
-      .catch((err) => console.log(err));
-  }, []);
   return (
     <main className="content">
       <section className="profile">
@@ -57,6 +49,8 @@ function Main({
               card={card}
               onCardClick={onCardClick}
               onImagePopup={onImagePopup}
+              handleDeleteClick={onCardDelete}
+              handleLikeClick={onCardLike}
             />
           );
         })}
