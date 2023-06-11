@@ -13,7 +13,7 @@ function Main({
   onCardLike
 }) {
   const currentUser = useContext(CurrentUserContext);
-
+  
   return (
     <main className="content">
       <section className="profile">
@@ -41,9 +41,9 @@ function Main({
           onClick={onAddPlace}
         ></button>
       </section>
-      <section className="elements">
-        {cards.map((card) => {
-          return (
+      <section className="elements"> 
+      {cards.map((card) => {
+           return (
             <Card
               key={card._id}
               card={card}
@@ -52,7 +52,7 @@ function Main({
               handleDeleteClick={onCardDelete}
               handleLikeClick={onCardLike}
             />
-          );
+          ); 
         })}
       </section>
     </main>

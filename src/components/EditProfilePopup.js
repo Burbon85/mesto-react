@@ -53,7 +53,6 @@ function EditProfilePopup({ isOpen, onClose, ...props }) {
         type="text"
         name="job"
         placeholder="Исследователь океана"
-        defaultValue=""
         required
         minLength="2"
         maxLength="200"

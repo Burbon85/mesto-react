@@ -114,6 +114,7 @@ function App() {
           onCardClick={handleCardClick}
           onCardLike={handleCardLike}
           onCardDelete={handleDeleteClick}
+          cards={cards}
         />
         <Footer />
 
