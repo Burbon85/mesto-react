@@ -25,6 +25,7 @@ function AddPlacePopup({ isOpen, onClose, ...props }) {
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={handleSubmit}
+      // onSubmit = {() => console.log("work")}
       textButton="Создать"
     >
       <input

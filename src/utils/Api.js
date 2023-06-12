@@ -41,13 +41,13 @@ class Api {
     }).then(this._getResponseData);
   }
 
-  createNewCard(formValues) {
+  createNewCard({ name, link }) {
     return fetch(`${this._url}/cards`, {
       method: "POST",
       headers: this._headers,
       body: JSON.stringify({
-        name: formValues.place,
-        link: formValues.link,
+        name: name,
+        link: link,
       }),
     }).then(this._getResponseData);
   }
@@ -73,7 +73,7 @@ class Api {
     }).then(this._getResponseData);
   }
 
-  patchAvatar(avatar) {
+  patchAvatar({avatar}) {
     return fetch(`${this._url}/users/me/avatar`, {
       method: "PATCH",
       headers: this._headers,

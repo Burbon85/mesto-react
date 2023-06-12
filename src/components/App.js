@@ -71,7 +71,7 @@ function App() {
 
   function handleUpdateAvatar(avatar) {
     api
-      .changeAvatar(avatar)
+      .patchAvatar(avatar)
       .then((avatar) => {
         setCurrentUser(avatar);
         closeAllPopups();
@@ -81,7 +81,7 @@ function App() {
 
   function handleAddPlaceSubmit({ name, link }) {
     api
-      .postNewCard({ name, link })
+      .createNewCard({ name, link })
       .then((newCard) => {
         setCards([newCard, ...cards]);
         closeAllPopups();
